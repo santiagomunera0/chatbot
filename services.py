@@ -215,10 +215,6 @@ def administrar_chatbot(text,number, messageId, name):
     text = text.lower() #mensaje que envio el usuario
     print("mensaje del usuario: ",text)
 
-    markRead = markRead_Message(messageId)
-    list.append(markRead)
-    time.sleep(2)
-
     if "hola" in text:
         body = "¡Hola! 👋 Soy EliBot de Palcos & Boletas. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo de Palcos & Boletas"
@@ -226,5 +222,3 @@ def administrar_chatbot(text,number, messageId, name):
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         enviar_Mensaje_whatsapp(replyButtonData)
-        
-
