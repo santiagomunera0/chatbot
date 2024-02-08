@@ -36,6 +36,7 @@ def recibir_mensajes():
         text = services.obtener_Mensaje_whatsapp(message)
 
         services.administrar_chatbot(text, number,messageId,name)
+        print(text)
         return 'enviado'
 
     except Exception as e:
