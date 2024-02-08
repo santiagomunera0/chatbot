@@ -221,9 +221,9 @@ def administrar_chatbot(text,number, messageId, name):
     time.sleep(2)
 
     if "hola" in text:
-        body = "¡Hola! 👋 Bienvenido a Bigdateros. ¿Cómo podemos ayudarte hoy?"
+        body = "¡Hola! 👋 Bienvenido a Palcos y Boletas. ¿Cómo podemos ayudarte hoy?"
         footer = "Equipo Bigdateros"
-        options = ["✅ servicios", "📅 agendar cita"]
+        options = ["✅ servicios", "📅 agendar cita", "mas info"]
 
         replyButtonData = buttonReply_Message(number, options, body, footer, "sed1",messageId)
         replyReaction = replyReaction_Message(number, messageId, "🫡")
@@ -288,14 +288,3 @@ def administrar_chatbot(text,number, messageId, name):
 
     for item in list:
         enviar_Mensaje_whatsapp(item)
-
-#al parecer para mexico, whatsapp agrega 521 como prefijo en lugar de 52,
-# este codigo soluciona ese inconveniente.
-def replace_start(s):
-    number = s[3:]
-    if s.startswith("521"):
-        return "52" + number
-    elif s.startswith("549"):
-        return "54" + number
-    else:
-        return s
