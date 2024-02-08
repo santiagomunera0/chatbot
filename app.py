@@ -1,7 +1,7 @@
 from services.whatsapp import Whatsapp
 from chat.chatflow import send_message
+from config import whatsapp
 from flask import Flask, request
-import sett
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def wa_verify_token():
         token = request.args.get('hub.verify_token')
         challenge = request.args.get('hub.challenge')
 
-        if token == sett.token and challenge != None:
+        if token == whatsapp.token and challenge != None:
             print('token correcto')
             return challenge
         else:

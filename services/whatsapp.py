@@ -1,5 +1,5 @@
+from config import whatsapp
 import requests
-import sett
 import json
 import time
 
@@ -27,8 +27,8 @@ class Whatsapp:
 
     def send_message(data):
         try:
-            whatsapp_token = sett.whatsapp_token
-            whatsapp_url = sett.whatsapp_url
+            whatsapp_token = whatsapp.whatsapp_token
+            whatsapp_url = whatsapp.whatsapp_url
             headers = {'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + whatsapp_token}
             print("se envia ", data)
@@ -164,13 +164,13 @@ class Whatsapp:
     def get_media_id(media_name , media_type):
         media_id = ""
         if media_type == "sticker":
-            media_id = sett.stickers.get(media_name, None)
+            media_id = whatsapp.stickers.get(media_name, None)
         #elif media_type == "image":
-        #    media_id = sett.images.get(media_name, None)
+        #    media_id = whatsapp.images.get(media_name, None)
         #elif media_type == "video":
-        #    media_id = sett.videos.get(media_name, None)
+        #    media_id = whatsapp.videos.get(media_name, None)
         #elif media_type == "audio":
-        #    media_id = sett.audio.get(media_name, None)
+        #    media_id = whatsapp.audio.get(media_name, None)
         return media_id
 
     def reply_reaction_message(number, messageId, emoji):
