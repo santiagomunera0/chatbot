@@ -19,6 +19,8 @@ def obtener_Mensaje_whatsapp(message):
         text = message['interactive']['button_reply']['title']
     else:
         text = 'mensaje no procesado'
+
+    print(text)    
     
     
     return text
